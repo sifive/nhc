@@ -383,7 +383,8 @@ function check_fs_free() {
             if [[ "${MIN_FREE/%%}" != "$MIN_FREE" ]]; then
                 if [[ $FREE_PCT -lt "${MIN_FREE/%%}" ]]; then
                     nhc_common_unparse_size $FS_FREE FS_FREE
-                    die 1 "$FUNCNAME:  $FS has only ${FREE_PCT}% free ($FS_FREE), minimum is $MIN_FREE"
+                    nhc_common_top_users $FS FS_TOP_USERS
+                    die 1 "$FUNCNAME:  $FS has only ${FREE_PCT}% free ($FS_FREE), minimum is $MIN_FREE. Top Users:\n$FS_TOP_USERS"
                     return 1
                 fi
             else
