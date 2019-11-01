@@ -87,7 +87,7 @@ elif [[ "$NHC_RM" == "slurm" ]]; then
                 exit 0
             fi
             echo "$0:  Marking $SLURM_HOST online and clearing note [$OLD_NOTE]"
-            MSG="Bringing [$SLURM_HOST] Back ONLINE... Current Slurm Status: [$STATUS]"
+            MSG="Bringing [$SLURM_HOST] Back ONLINE and clearing note [$OLD_NOTE]"
             if [[ -n "$MAILTO" ]]; then
                 APP_SLACK_CHANNEL="$MAILTO" APP_SLACK_USERNAME='NHC' APP_SLACK_ICON_EMOJI='white_check_mark' $LIBEXECDIR/nhc/slack "$MSG"
             else
